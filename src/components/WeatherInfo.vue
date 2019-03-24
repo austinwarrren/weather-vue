@@ -1,8 +1,8 @@
 <template>
     <div v-if="weatherInfo.icon">
         <img :src="weatherInfo.icon" alt="weatherState" />
-        <p>{{ cityName }}&nbsp;<span data-test="temperature">{{ unitTemp }}&deg;</span></p>
-        <label>Temperature 
+        <p>{{ cityName }}&nbsp;<span v-if="weatherInfo.temp" data-test="temperature">{{ unitTemp }}&deg;</span></p>
+        <label v-if="weatherInfo.temp">Temperature 
             <input type="radio" name="tempUnit" v-model="tempUnit" value="C" data-test="celsius" />&deg;C&nbsp;
             <input type="radio" name="tempUnit" v-model="tempUnit" data-test="fahrenheit" value="F" checked="checked" />&deg;F
         </label>

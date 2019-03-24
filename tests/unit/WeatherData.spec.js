@@ -27,12 +27,12 @@ describe('WeatherData', () => {
             .then(response => {
                 expect(response.temp).to.be.a('number');
             })
-    })
+    });
 
     it('returns an icon ID', () => {
         return WeatherData.getCurrentWeatherData('Chicago')
             .then(response => {
                 expect(response.icon).to.be.a('string');
             })
-    })
+    });
 })

@@ -13,7 +13,13 @@ export default {
             }
             return trimmedResponse;
         }).catch(error => {
-            console.log(error)
+            console.log(error);
+            let errorResponse = {
+                'name': 'Error: Invalid entry',
+                'temp': null,
+                'icon': require('../../assets/warning-icon-small.png')
+            };
+            return errorResponse;
         });
     }
 }

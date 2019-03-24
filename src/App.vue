@@ -24,11 +24,11 @@ export default {
   },
   methods: {
     displayCity(cityName) {
-      this.cityName = cityName;
       
-      WeatherData.getCurrentWeatherData(this.cityName)
+      WeatherData.getCurrentWeatherData(cityName)
         .then(response => {
             this.weatherInfo = response;
+            this.cityName = response.name;
         });
     }
   } 

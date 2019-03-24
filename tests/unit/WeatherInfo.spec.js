@@ -47,5 +47,5 @@ describe('WeatherInfo', () =>{
                 wrapper.vm.unitTemp
             ).to.equal(fahrenheitTemp);
         })
-    })
+    });
 })

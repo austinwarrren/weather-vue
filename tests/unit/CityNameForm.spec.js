@@ -13,7 +13,7 @@ describe('CityNameForm', () => {
         beforeEach(() => {
             wrapper
                 .find('[data-test="cityName"]')
-                .setValue('Chicago IL');
+                .setValue('Chicago');
             
             wrapper
                 .find('[data-test="submitButton"]')
@@ -27,7 +27,7 @@ describe('CityNameForm', () => {
         });
 
         it('emits the "submit" event', () => {
-            expect(wrapper.emitted().submit[0]).to.deep.equal(['Chicago IL']);
+            expect(wrapper.emitted().submit[0]).to.deep.equal(['Chicago']);
         });
     });
 });
