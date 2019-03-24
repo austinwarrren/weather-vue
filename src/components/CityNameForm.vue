@@ -1,9 +1,20 @@
 <template>
     <div>
-        <label>City:&nbsp;
-            <input type="text" data-test="cityName" v-model="cityName" />
-        </label>
-        <button data-test="submitButton" @click="submit">Submit</button>
+        <b-row>
+            <b-col md="2">
+                <label for="cityName">City:</label>
+            </b-col>
+            <b-col md="10">
+                <b-form-group>
+                    <input type="text" class="form-control" data-test="cityName" v-model="cityName" id="cityName" />
+                </b-form-group>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col cols="12">
+                <b-button variant="primary" data-test="submitButton" @click="submit">Submit</b-button>
+            </b-col>
+        </b-row>
     </div>
 </template>
 

@@ -1,11 +1,26 @@
 <template>
     <div v-if="weatherInfo.icon">
-        <img :src="weatherInfo.icon" alt="weatherState" />
-        <p>{{ cityName }}&nbsp;<span v-if="weatherInfo.temp" data-test="temperature">{{ unitTemp }}&deg;</span></p>
-        <label v-if="weatherInfo.temp">Temperature 
-            <input type="radio" name="tempUnit" v-model="tempUnit" value="C" data-test="celsius" />&deg;C&nbsp;
-            <input type="radio" name="tempUnit" v-model="tempUnit" data-test="fahrenheit" value="F" checked="checked" />&deg;F
-        </label>
+        <b-row>
+            <b-col cols="7">
+                <h4>{{ cityName }}</h4>
+            </b-col>
+            <b-col cols="5">
+                <div class="btn-group btn-group-toggle" v-if="weatherInfo.temp">
+                    <label v-bind:class="{ active: isCelsius }" class="btn btn-outline-primary">
+                        <input type="radio" name="tempUnit" data-test="celsius" value="C" v-model="tempUnit" />&deg;C
+                    </label>
+                    <label v-bind:class="{ active: isFahrenheit }" class="btn btn-outline-primary">
+                        <input type="radio" name="tempUnit" data-test="fahrenheit" value="F" v-model="tempUnit" checked="checked" />&deg;F
+                    </label>
+                </div>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col cols="12">
+                <img :src="weatherInfo.icon" alt="Weather Condition" />
+                <span v-if="weatherInfo.temp" data-test="temperature">{{ unitTemp }}&deg;</span>
+            </b-col>
+        </b-row>
     </div>
 </template>
 
@@ -22,18 +37,24 @@
         },
         data() {
             return {
-                tempUnit: 'F'
+                tempUnit: 'F',
+                isFahrenheit: true,
+                isCelsius: false
             }
         },
         computed: {
             unitTemp: function () {
                 if(this.tempUnit == 'F'){
-                    return Math.floor(((this.weatherInfo.temp - 273.15) * (9/5) + 32) * 100) / 100;
+                    this.isFahrenheit = true;
+                    this.isCelsius = false;
+                    return Math.round(((this.weatherInfo.temp - 273.15) * (9/5) + 32));
                 }
                 else{
-                    return Math.floor((this.weatherInfo.temp - 273.15) * 100) / 100;
+                    this.isFahrenheit = false;
+                    this.isCelsius = true;
+                    return Math.round(this.weatherInfo.temp - 273.15);
                 }
-            }
+            },
         }
     }
 </script>

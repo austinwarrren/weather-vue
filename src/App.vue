@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <WeatherInfo :cityName="cityName" :weatherInfo="weatherInfo" />
-    <CityNameForm @submit="displayCity" />
-  </div>
+  <b-container>
+    <div class="rounded" id="app">
+      <WeatherInfo :cityName="cityName" :weatherInfo="weatherInfo" />
+      <CityNameForm @submit="displayCity" />
+    </div>
+  </b-container>
 </template>
 
 <script>
@@ -34,3 +36,15 @@ export default {
   } 
 }
 </script>
+
+<style>
+    #app {
+      display: inline-block;
+      padding: 10px;
+      background-color: #dddddd;
+      text-align: left;
+    }
+    .container{
+      text-align: center;
+    }
+</style>

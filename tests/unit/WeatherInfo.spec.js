@@ -26,7 +26,7 @@ describe('WeatherInfo', () =>{
 
         it('converts to Celsius', () => {
             let kelvinTemp = wrapper.props().weatherInfo.temp;
-            let celsiusTemp = Math.floor((parseFloat(kelvinTemp) - 273.15) * 100) / 100;
+            let celsiusTemp = Math.round(kelvinTemp - 273.15);
             expect(
                 wrapper.vm.unitTemp
             ).to.equal(celsiusTemp);
@@ -42,7 +42,7 @@ describe('WeatherInfo', () =>{
 
         it('converts to Fahrenheit', () => {
             let kelvinTemp = wrapper.props().weatherInfo.temp;
-            let fahrenheitTemp = Math.floor(((kelvinTemp - 273.15) * (9/5) + 32) * 100) / 100;
+            let fahrenheitTemp = Math.round((kelvinTemp - 273.15) * (9/5) + 32);
             expect(
                 wrapper.vm.unitTemp
             ).to.equal(fahrenheitTemp);
