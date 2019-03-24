@@ -19,7 +19,7 @@ export default {
         submit() {
             // Emit 'submit' event:
             this.$emit('submit', this.cityName);
-            // Clear city name field on successful API request:
+            // Clear city name field:
             this.cityName = '';
         } 
     }

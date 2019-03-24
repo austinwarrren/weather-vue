@@ -12,10 +12,5 @@ describe('Querying a city', () => {
             .should('have.value', '');
 
         cy.contains('Chicago');
-
-        cy.get('[data-test="celsius"]')
-            .click();
-
-        // Check if temperature has changed format:
     })
 })

@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div v-if="weatherInfo.icon">
         <img :src="weatherInfo.icon" alt="weatherState" />
         <p>{{ cityName }}&nbsp;<span data-test="temperature">{{ unitTemp }}&deg;</span></p>
         <label>Temperature 
             <input type="radio" name="tempUnit" v-model="tempUnit" value="C" data-test="celsius" />&deg;C&nbsp;
-            <input type="radio" name="tempUnit" v-model="tempUnit" data-test="fahrenheit" value="F" />&deg;F
+            <input type="radio" name="tempUnit" v-model="tempUnit" data-test="fahrenheit" value="F" checked="checked" />&deg;F
         </label>
     </div>
 </template>
@@ -14,11 +14,9 @@
         name: 'WeatherInfo',
         props: {
             cityName: {
-                default: 'Chicago',
                 type: String
             },
             weatherInfo: {
-                default: { name: 'Chicago', temp: 250, icon: 'http://'},
                 type: Object
             }
         },

@@ -6,7 +6,15 @@ describe('WeatherInfo', () =>{
     let wrapper;
 
     beforeEach(() => {
-        wrapper = mount(WeatherInfo);
+        wrapper = mount(WeatherInfo, {
+            propsData: {
+                weatherInfo: {
+                    name: 'Chicago',
+                    temp: 250,
+                    icon: 'http://openweathermap.org/img/w/10d.png'
+                }
+            }
+        });
     });
 
     describe('clicking the Celsius radio button', () => {
