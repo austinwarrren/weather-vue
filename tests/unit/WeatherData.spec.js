@@ -13,12 +13,26 @@ describe('WeatherData', () => {
                 APPID: process.env.VUE_APP_OPEN_WEATHER_MAP_KEY
             })
             .reply(200, WeatherDataResponse.currentWeatherData);
-    })
-    it('returns correct information', () => {
+    });
+
+    it('returns correct city', () => {
         return WeatherData.getCurrentWeatherData('Chicago')
             .then(response => {
-                //expect(response).to.be.a('object');
-                expect(response.name).to.equal('Chicago')
+                expect(response.name).to.equal('Chicago');
             });
+    });
+
+    it('returns a temperature', () => {
+        return WeatherData.getCurrentWeatherData('Chicago')
+            .then(response => {
+                expect(response.temp).to.be.a('number');
+            })
+    })
+
+    it('returns an icon ID', () => {
+        return WeatherData.getCurrentWeatherData('Chicago')
+            .then(response => {
+                expect(response.icon).to.be.a('string');
+            })
     })
 })

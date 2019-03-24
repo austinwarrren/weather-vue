@@ -3,7 +3,7 @@ describe('Querying a city', () => {
         cy.visit('/');
 
         cy.get('[data-test="cityName"]')
-            .type('Chicago IL');
+            .type('Chicago');
         
         cy.get('[data-test="submitButton"]')
             .click();
@@ -11,6 +11,11 @@ describe('Querying a city', () => {
         cy.get('[data-test="cityName"]')
             .should('have.value', '');
 
-        cy.contains('Chicago IL');
+        cy.contains('Chicago');
+
+        cy.get('[data-test="celsius"]')
+            .click();
+
+        // Check if temperature has changed format:
     })
 })

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <WeatherInfo :cityName="cityName" />
+    <WeatherInfo :cityName="cityName" :weatherInfo="weatherInfo" />
     <CityNameForm @submit="displayCity" />
   </div>
 </template>
@@ -8,6 +8,7 @@
 <script>
 import CityNameForm from './components/CityNameForm'
 import WeatherInfo from './components/WeatherInfo'
+import WeatherData from './services/api/WeatherData.js'
 
 export default {
   name: 'App', 
@@ -17,12 +18,18 @@ export default {
   },
   data() {
     return {
-      cityName: ''
+      cityName: '',
+      weatherInfo: {}
     };
   },
   methods: {
     displayCity(cityName) {
       this.cityName = cityName;
+      
+      WeatherData.getCurrentWeatherData(this.cityName)
+        .then(response => {
+            this.weatherInfo = response;
+        });
     }
   } 
 }

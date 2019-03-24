@@ -6,7 +6,12 @@ export default {
             q: cityName,
             APPID: process.env.VUE_APP_OPEN_WEATHER_MAP_KEY
         }}).then(response => {
-            return response.data;
+            let trimmedResponse = {
+                "name": response.data.name,
+                "temp": response.data.main.temp,
+                "icon": 'http://openweathermap.org/img/w/' + response.data.weather[0].icon + '.png'
+            }
+            return trimmedResponse;
         }).catch(error => {
             console.log(error)
         });
