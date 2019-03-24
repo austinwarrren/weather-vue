@@ -5,7 +5,7 @@ import WeatherDataResponse from './mocks/weatherDataResponse.js';
 
 describe('WeatherData', () => {
     beforeEach(() => {
-        nock('http://api.openweathermap.org')
+        nock('https://api.openweathermap.org')
             .defaultReplyHeaders({'access-control-allow-origin': '*'})
             .get('/data/2.5/weather')
             .query({
