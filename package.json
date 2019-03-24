@@ -10,6 +10,8 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap-vue": "^2.0.0-rc.15",
     "vue": "^2.6.6"
   },
   "devDependencies": {
@@ -23,6 +25,7 @@
     "chai": "^4.1.2",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
+    "nock": "^10.0.6",
     "vue-template-compiler": "^2.6.10"
   }
 }
