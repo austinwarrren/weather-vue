@@ -1,5 +1,7 @@
 # weather-vue
 
+[![Build Status](https://travis-ci.org/austinwarrren/weather-vue.svg?branch=master)](https://travis-ci.org/austinwarrren/weather-vue)
+
 ## Project setup
 ```
 npm install
